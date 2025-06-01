@@ -16,13 +16,12 @@
 
         <TextView
             android:id="@+id/cabecalhoTexto"
+            android:theme="@style/EstiloTexto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:background="red"
             android:gravity="center_horizontal"
             android:text="HamburgueriaZ"
-            android:textSize="20dp"
-            android:padding="10dp"
+            android:textSize="17dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
