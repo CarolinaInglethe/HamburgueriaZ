@@ -27,6 +27,13 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:src="@drawable/Logo"
+            android:adjustViewBounds="true"
+            android:contentDescription="Logo da Hamburgueria"/>
+
         <TextView
             android:theme="@style/EstiloTexto"
             android:layout_width="wrap_content"
