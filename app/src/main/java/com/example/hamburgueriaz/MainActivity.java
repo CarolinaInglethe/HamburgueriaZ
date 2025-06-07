@@ -65,29 +65,29 @@ public class MainActivity extends AppCompatActivity {
     }
 
 
-    public int somaValorTotalPedido( Boolean bacon,Boolean queijo, Boolean orionRings, int quantidade) {
+    public int somaValorTotalPedido(Boolean bacon,Boolean queijo, Boolean orionRings, int quantidade) {
         int somaTotal = 0;
 
         if (quantidade > 1) {
             somaTotal = somaTotal + 20 * quantidade;  // soma valor do hamburguer e adicionais multiplicando pela quantidade
-            if (bacon == true) {
+            if (bacon) {
                 somaTotal = somaTotal + 2 * quantidade;
             }
-            if (queijo == true) {
+            if (queijo) {
                 somaTotal = somaTotal + 2 * quantidade;
             }
-            if (orionRings == true) {
+            if (orionRings) {
                 somaTotal = somaTotal + 3 * quantidade;
             }
         } else {
             somaTotal = somaTotal + 20; // apenas soma o valor do hamburguer
-            if (bacon == true) {
+            if (bacon) {
                 somaTotal = somaTotal + 2;
             }
-            if (queijo == true) {
+            if (queijo) {
                 somaTotal = somaTotal + 2;
             }
-            if (orionRings == true) {
+            if (orionRings) {
                 somaTotal = somaTotal + 3;
             }
         }
@@ -101,20 +101,20 @@ public class MainActivity extends AppCompatActivity {
         Boolean checkBoxQueijo = mCheckBoxViewQueijo.isChecked();
         Boolean checkBoxOrionRings = mCheckBoxViewOrionRings.isChecked();
         String valorQuantidadeString = mTextViewQuantidade.getText().toString();
-
         String resumoPedido = mTextViewResumoPedido.getText().toString();
 
         int  valorQuantidade = Integer.parseInt(valorQuantidadeString);
 
 
         if (valorQuantidade > 0) {
-            String resumoTextoPedido = "RESUMO DO PEDIDO:" + "\r\n --------------- " + "\r\n Nome Cliente: " + nomeClienteString + "\r\n Bacon: " + checkBoxBacon + "\r\n Queijo: " +
+            mTextViewValorPedido.setText(String.valueOf(somaValorTotalPedido(checkBoxBacon, checkBoxQueijo, checkBoxOrionRings, valorQuantidade)));
+
+
+            String resumoTextoPedido = "RESUMO DO PEDIDO:" + "\r\n --------------- " + "\r\n Nome Cliente:  " + nomeClienteString + "\r\n Bacon: " + checkBoxBacon  + "\r\n Queijo: " +
                     checkBoxQueijo + " \r\n Orion Rings: " + checkBoxOrionRings + "\r\n Quantidade: " + valorQuantidadeString + "\r\n --------------- ";
 
             mTextViewResumoPedido.setText(String.valueOf(resumoPedido)); // voltar ao texto inicial (limpar antes )
             mTextViewResumoPedido.setText(String.valueOf(resumoTextoPedido));
-
-            mTextViewValorPedido.setText(String.valueOf(somaValorTotalPedido(checkBoxBacon, checkBoxQueijo, checkBoxOrionRings, valorQuantidade)));
         }
     }
 
