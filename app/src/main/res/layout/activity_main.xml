@@ -54,19 +54,19 @@
             android:id="@+id/checkBoxViewBacon"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Bacon"/>
+            android:text="Bacon - R$ 2"/>
 
         <CheckBox
             android:id="@+id/checkBoxViewQueijo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Queijo"/>
+            android:text="Queijo - R$ 2"/>
 
         <CheckBox
             android:id="@+id/checkBoxViewOrionRings"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:text="Orion Rings"/>
+            android:text="Orion Rings - R$ 3"/>
 
 
         <TextView
