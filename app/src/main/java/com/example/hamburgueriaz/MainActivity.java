@@ -2,6 +2,7 @@ package com.example.hamburgueriaz;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -14,6 +15,13 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
 
     private TextView mTextViewQuantidade;
+    private EditText mEditTextViewNome;
+    private TextView mTextViewResumoPedido;
+    private TextView mTextViewValorPedido;
+    private CheckBox mCheckBoxViewBacon;
+    private CheckBox mCheckBoxViewQueijo;
+    private CheckBox mCheckBoxViewOrionRings;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +35,12 @@ public class MainActivity extends AppCompatActivity {
         });
 
         mTextViewQuantidade = findViewById(R.id.textViewQuantidade);
-
+        mEditTextViewNome = findViewById(R.id.EditTextViewNome);
+        mTextViewResumoPedido = findViewById(R.id.textViewResumoPedido);
+        mTextViewValorPedido = findViewById(R.id.textViewValorPedido);
+        mCheckBoxViewBacon = findViewById(R.id.checkBoxViewBacon);
+        mCheckBoxViewQueijo = findViewById(R.id.checkBoxViewQueijo);
+        mCheckBoxViewOrionRings = findViewById(R.id.checkBoxViewOrionRings);
     }
 
     public void somar(View view) {
@@ -49,6 +62,25 @@ public class MainActivity extends AppCompatActivity {
         }
 
         mTextViewQuantidade.setText(String.valueOf(valorQuantidade));
+    }
+
+
+    public void enviarPedido(View view) {
+        String nomeClienteString = mEditTextViewNome.getText().toString();
+        String checkBoxBacon = mCheckBoxViewBacon.getText().toString();
+        String checkBoxQueijo = mCheckBoxViewQueijo.getText().toString();
+        String checkBoxOrionRings = mCheckBoxViewOrionRings.getText().toString();
+        String valorQuantidadeString = mTextViewQuantidade.getText().toString();
+
+        String resumoPedido = mTextViewResumoPedido.getText().toString();
+        String valorPedido = mTextViewValorPedido.getText().toString();
+
+        mTextViewResumoPedido.setText(String.valueOf(
+                resumoPedido + "Nome Cliente: " + nomeClienteString + "Bacon?: " + checkBoxBacon + "Queijo?: " +
+                        checkBoxQueijo + "Orion Rings?: " + checkBoxOrionRings + "Quantidade: " + valorQuantidadeString
+        ));
+
+
     }
 
 }
