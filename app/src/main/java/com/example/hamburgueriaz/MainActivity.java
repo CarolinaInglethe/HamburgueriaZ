@@ -31,6 +31,10 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void somar(View view) {
+        String valorQuantidadeString = mTextViewQuantidade.getText().toString();
+        int  valorQuantidade = Integer.parseInt(valorQuantidadeString);
+
+        mTextViewQuantidade.setText(String.valueOf(valorQuantidade + 1));
 
     }
 
