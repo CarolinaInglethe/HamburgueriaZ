@@ -67,18 +67,20 @@ public class MainActivity extends AppCompatActivity {
 
     public void enviarPedido(View view) {
         String nomeClienteString = mEditTextViewNome.getText().toString();
-        String checkBoxBacon = mCheckBoxViewBacon.getText().toString();
-        String checkBoxQueijo = mCheckBoxViewQueijo.getText().toString();
-        String checkBoxOrionRings = mCheckBoxViewOrionRings.getText().toString();
+        Boolean checkBoxBacon = mCheckBoxViewBacon.isChecked();
+        Boolean checkBoxQueijo = mCheckBoxViewQueijo.isChecked();
+        Boolean checkBoxOrionRings = mCheckBoxViewOrionRings.isChecked();
         String valorQuantidadeString = mTextViewQuantidade.getText().toString();
 
         String resumoPedido = mTextViewResumoPedido.getText().toString();
         String valorPedido = mTextViewValorPedido.getText().toString();
 
-        mTextViewResumoPedido.setText(String.valueOf(
-                resumoPedido + "Nome Cliente: " + nomeClienteString + "Bacon?: " + checkBoxBacon + "Queijo?: " +
-                        checkBoxQueijo + "Orion Rings?: " + checkBoxOrionRings + "Quantidade: " + valorQuantidadeString
-        ));
+
+        String resumoTextoPedido = "RESUMO DO PEDIDO:" + "\r\n --------------- " + "\r\n Nome Cliente: " + nomeClienteString + "\r\n Bacon: " + checkBoxBacon + "\r\n Queijo: " +
+                checkBoxQueijo + " \r\n Orion Rings: " + checkBoxOrionRings + "\r\n Quantidade: " + valorQuantidadeString + "\r\n --------------- ";
+
+        mTextViewResumoPedido.setText(String.valueOf(resumoPedido)); // voltar ao texto inicial (limpar antes )
+        mTextViewResumoPedido.setText(String.valueOf(resumoTextoPedido));
 
 
     }
