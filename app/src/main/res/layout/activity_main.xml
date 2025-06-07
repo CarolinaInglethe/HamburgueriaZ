@@ -30,7 +30,7 @@
         <ImageView
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:src="@drawable/Logo"
+            android:src="@drawable/logo"
             android:adjustViewBounds="true"
             android:contentDescription="Logo da Hamburgueria"/>
 
