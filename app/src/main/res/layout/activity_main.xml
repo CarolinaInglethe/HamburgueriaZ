@@ -44,7 +44,7 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <android.inputmethodservice.ExtractEditText
+        <EditText
             android:id="@+id/EditTextViewNome"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
