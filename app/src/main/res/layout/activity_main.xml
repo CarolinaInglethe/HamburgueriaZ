@@ -104,8 +104,8 @@
                 android:id="@+id/buttonViewSomar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+"
-                android:onClick="somar" />
+                android:onClick="somar"
+                android:text="+" />
 
         </LinearLayout>
 
