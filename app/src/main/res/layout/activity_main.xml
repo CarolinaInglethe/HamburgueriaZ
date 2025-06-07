@@ -45,6 +45,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <android.inputmethodservice.ExtractEditText
+            android:id="@+id/EditTextViewNome"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:hint="Nome"/>
@@ -99,14 +100,12 @@
                 android:padding="10dp"
                 android:text="0"/>
 
-
             <Button
                 android:id="@+id/buttonViewSomar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:onClick="somar"
                 android:text="+" />
-
         </LinearLayout>
 
         <TextView
@@ -114,6 +113,7 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Resumo do pedido:" />
+
         <TextView
             android:theme="@style/EstiloTexto"
             android:id="@+id/textViewResumoPedido"
@@ -126,8 +126,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="FAZER PEDIDO" />
-
-
 
 
     </LinearLayout>
