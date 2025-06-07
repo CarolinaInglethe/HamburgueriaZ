@@ -89,7 +89,8 @@
                 android:id="@+id/buttonViewSubtrair"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="-"/>
+                android:text="-"
+                android:onClick="subtrair"/>
 
             <TextView
                 android:id="@+id/textViewQuantidade"
@@ -103,7 +104,8 @@
                 android:id="@+id/buttonViewSomar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="+"/>
+                android:text="+"
+                android:onClick="somar" />
 
         </LinearLayout>
 

@@ -1,6 +1,7 @@
 package com.example.hamburgueriaz;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
@@ -12,6 +13,8 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
+    private TextView mTextViewQuantidade;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -22,6 +25,17 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        mTextViewQuantidade = findViewById(R.id.textViewQuantidade);
+
+    }
+
+    public void somar(View view) {
+
+    }
+
+    public void subtrair(View view) {
+
     }
 
 }
