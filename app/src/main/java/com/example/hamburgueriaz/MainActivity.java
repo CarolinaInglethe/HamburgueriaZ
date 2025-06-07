@@ -36,13 +36,19 @@ public class MainActivity extends AppCompatActivity {
         int  valorQuantidade = Integer.parseInt(valorQuantidadeString);
         valorQuantidade++;
 
-
         mTextViewQuantidade.setText(String.valueOf(valorQuantidade));
-
     }
 
     public void subtrair(View view) {
+        String valorQuantidadeString = mTextViewQuantidade.getText().toString();
 
+        int  valorQuantidade = Integer.parseInt(valorQuantidadeString);
+
+        if (valorQuantidade > 0 ) {
+            valorQuantidade--;
+        }
+
+        mTextViewQuantidade.setText(String.valueOf(valorQuantidade));
     }
 
 }
