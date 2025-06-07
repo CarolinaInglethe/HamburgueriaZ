@@ -15,7 +15,7 @@
 
 
         <TextView
-            android:id="@+id/cabecalhoTexto"
+            android:id="@+id/textViewCabecalho"
             android:theme="@style/EstiloTexto"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -50,19 +50,19 @@
             android:hint="Nome"/>
 
         <CheckBox
-            android:id="@+id/baconCheck"
+            android:id="@+id/checkBoxViewBacon"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Bacon"/>
 
         <CheckBox
-            android:id="@+id/queijoCheck"
+            android:id="@+id/checkBoxViewQueijo"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Queijo"/>
 
         <CheckBox
-            android:id="@+id/orionRingsCheck"
+            android:id="@+id/checkBoxViewOrionRings"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="Orion Rings"/>
@@ -86,12 +86,13 @@
             android:gravity="center">
 
             <Button
-                android:id="@+id/botaoSubtrair"
+                android:id="@+id/buttonViewSubtrair"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-"/>
 
             <TextView
+                android:id="@+id/textViewQuantidade"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:padding="10dp"
@@ -99,7 +100,7 @@
 
 
             <Button
-                android:id="@+id/botaoSomar"
+                android:id="@+id/buttonViewSomar"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="+"/>
@@ -113,13 +114,13 @@
             android:text="Resumo do pedido:" />
         <TextView
             android:theme="@style/EstiloTexto"
-            android:id="@+id/resumoPedido"
+            android:id="@+id/textViewResumoPedido"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="R$ 0" />
 
         <Button
-            android:id="@+id/botaoPedido"
+            android:id="@+id/buttonViewFazerPedido"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:text="FAZER PEDIDO" />

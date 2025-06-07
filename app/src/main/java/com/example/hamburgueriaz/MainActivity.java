@@ -1,6 +1,8 @@
 package com.example.hamburgueriaz;
 
 import android.os.Bundle;
+import android.widget.EditText;
+import android.widget.TextView;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,4 +23,5 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
     }
+
 }
