@@ -50,6 +50,7 @@ public class MainActivity extends AppCompatActivity {
         mTextViewQuantidade.setText(String.valueOf(quantidadeNumber));
     }
 
+
     public void subtrair(View view) {
         String quantidade = mTextViewQuantidade.getText().toString();
         int  quantidadeNumber = Integer.parseInt(quantidade);
@@ -92,39 +93,34 @@ public class MainActivity extends AppCompatActivity {
         return somaTotal;
     }
 
-    public void funcaoEnviarEmail( String textoResumoPedido){
 
+    public void funcaoEnviarEmail( String textoResumoPedido, int valorTotalPedido){
         Intent intent = new Intent(Intent.ACTION_SEND);
-//            intent.putExtra(Intent.EXTRA_EMAIL, new String([]{"carolinainglethe@gmail.com"}));
-        intent.putExtra(Intent.EXTRA_SUBJECT, textoResumoPedido);
-//        intent.putExtra(Intent.EXTRA_TEXT, textoResumoPedido);
+        intent.putExtra(Intent.EXTRA_SUBJECT, String.valueOf(textoResumoPedido + "\r\nR$ " + valorTotalPedido));
+        intent.putExtra(Intent.EXTRA_TEXT, String.valueOf(textoResumoPedido + "\r\nR$ " + valorTotalPedido));
         intent.setType("message/rfc822");
         startActivity(Intent.createChooser(intent, "Resumo do Pedido"));
     }
 
+
     public void enviarPedido(View view) {
-        String nomeClienteString = mEditTextViewNome.getText().toString();
+        String nome = mEditTextViewNome.getText().toString();
         Boolean checkBoxBacon = mCheckBoxViewBacon.isChecked();
         Boolean checkBoxQueijo = mCheckBoxViewQueijo.isChecked();
         Boolean checkBoxOrionRings = mCheckBoxViewOrionRings.isChecked();
-        String quantidadeString = mTextViewQuantidade.getText().toString();
-        String resumoPedido = mTextViewResumoPedido.getText().toString();
+        int quantidade = Integer.parseInt(mTextViewQuantidade.getText().toString());
 
-        int  valorQuantidade = Integer.parseInt(quantidadeString);
+        if (quantidade > 0) {
+            int valorTotalPedido = somaValorTotalPedido(checkBoxBacon, checkBoxQueijo, checkBoxOrionRings, quantidade); // função calcular Valor Total R$
+            mTextViewValorPedido.setText(String.valueOf("R$ " + valorTotalPedido));
 
+            String textoResumoPedido = "RESUMO DO PEDIDO:" + "\r\n --------------- " + "\r\n Nome Cliente:  " + nome + "\r\n Bacon: " + checkBoxBacon  + "\r\n Queijo: " +
+                    checkBoxQueijo + " \r\n Orion Rings: " + checkBoxOrionRings + "\r\n Quantidade: " + quantidade + "\r\n --------------- ";
 
-        if (valorQuantidade > 0) {
-            mTextViewValorPedido.setText(String.valueOf( "R$ " + somaValorTotalPedido(checkBoxBacon, checkBoxQueijo, checkBoxOrionRings, valorQuantidade))); // função calcular Valor Total R$
+            mTextViewResumoPedido.setText(String.valueOf(""));  // Limpar Resumo
+            mTextViewResumoPedido.setText(String.valueOf(textoResumoPedido));
 
-
-
-            String resumoTextoPedido = "RESUMO DO PEDIDO:" + "\r\n --------------- " + "\r\n Nome Cliente:  " + nomeClienteString + "\r\n Bacon: " + checkBoxBacon  + "\r\n Queijo: " +
-                    checkBoxQueijo + " \r\n Orion Rings: " + checkBoxOrionRings + "\r\n Quantidade: " + quantidadeString + "\r\n --------------- ";
-
-            mTextViewResumoPedido.setText(String.valueOf(resumoPedido)); // voltar ao texto inicial (limpar antes )
-            mTextViewResumoPedido.setText(String.valueOf(resumoTextoPedido));
-
-            funcaoEnviarEmail(resumoTextoPedido);
+            funcaoEnviarEmail(textoResumoPedido, valorTotalPedido);
 
         }
     }
