@@ -1,5 +1,6 @@
 package com.example.hamburgueriaz;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.CheckBox;
@@ -14,13 +15,10 @@ import androidx.core.view.WindowInsetsCompat;
 
 public class MainActivity extends AppCompatActivity {
 
-    private TextView mTextViewQuantidade;
+    private TextView mTextViewQuantidade, mTextViewResumoPedido, mTextViewValorPedido;
     private EditText mEditTextViewNome;
-    private TextView mTextViewResumoPedido;
-    private TextView mTextViewValorPedido;
-    private CheckBox mCheckBoxViewBacon;
-    private CheckBox mCheckBoxViewQueijo;
-    private CheckBox mCheckBoxViewOrionRings;
+    private CheckBox mCheckBoxViewBacon, mCheckBoxViewQueijo, mCheckBoxViewOrionRings;
+
 
 
     @Override
@@ -95,26 +93,40 @@ public class MainActivity extends AppCompatActivity {
         return somaTotal;
     }
 
+    public void funcaoEnviarEmail( String textoResumoPedido){
+
+        Intent intent = new Intent(Intent.ACTION_SEND);
+//            intent.putExtra(Intent.EXTRA_EMAIL, new String([]{"carolinainglethe@gmail.com"}));
+        intent.putExtra(Intent.EXTRA_SUBJECT, textoResumoPedido);
+//        intent.putExtra(Intent.EXTRA_TEXT, textoResumoPedido);
+        intent.setType("message/rfc822");
+        startActivity(Intent.createChooser(intent, "Resumo do Pedido"));
+    }
+
     public void enviarPedido(View view) {
         String nomeClienteString = mEditTextViewNome.getText().toString();
         Boolean checkBoxBacon = mCheckBoxViewBacon.isChecked();
         Boolean checkBoxQueijo = mCheckBoxViewQueijo.isChecked();
         Boolean checkBoxOrionRings = mCheckBoxViewOrionRings.isChecked();
-        String valorQuantidadeString = mTextViewQuantidade.getText().toString();
+        String quantidadeString = mTextViewQuantidade.getText().toString();
         String resumoPedido = mTextViewResumoPedido.getText().toString();
 
-        int  valorQuantidade = Integer.parseInt(valorQuantidadeString);
+        int  valorQuantidade = Integer.parseInt(quantidadeString);
 
 
         if (valorQuantidade > 0) {
-            mTextViewValorPedido.setText(String.valueOf(somaValorTotalPedido(checkBoxBacon, checkBoxQueijo, checkBoxOrionRings, valorQuantidade)));
+            mTextViewValorPedido.setText(String.valueOf( "R$ " + somaValorTotalPedido(checkBoxBacon, checkBoxQueijo, checkBoxOrionRings, valorQuantidade))); // função calcular Valor Total R$
+
 
 
             String resumoTextoPedido = "RESUMO DO PEDIDO:" + "\r\n --------------- " + "\r\n Nome Cliente:  " + nomeClienteString + "\r\n Bacon: " + checkBoxBacon  + "\r\n Queijo: " +
-                    checkBoxQueijo + " \r\n Orion Rings: " + checkBoxOrionRings + "\r\n Quantidade: " + valorQuantidadeString + "\r\n --------------- ";
+                    checkBoxQueijo + " \r\n Orion Rings: " + checkBoxOrionRings + "\r\n Quantidade: " + quantidadeString + "\r\n --------------- ";
 
             mTextViewResumoPedido.setText(String.valueOf(resumoPedido)); // voltar ao texto inicial (limpar antes )
             mTextViewResumoPedido.setText(String.valueOf(resumoTextoPedido));
+
+            funcaoEnviarEmail(resumoTextoPedido);
+
         }
     }
 
