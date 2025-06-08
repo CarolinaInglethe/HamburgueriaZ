@@ -41,25 +41,24 @@ public class MainActivity extends AppCompatActivity {
         mCheckBoxViewOrionRings = findViewById(R.id.checkBoxViewOrionRings);
     }
 
+
     public void somar(View view) {
-        String valorQuantidadeString = mTextViewQuantidade.getText().toString();
+        String quantidade = mTextViewQuantidade.getText().toString();
+        int  quantidadeNumber = Integer.parseInt(quantidade);
 
-        int  valorQuantidade = Integer.parseInt(valorQuantidadeString);
-        valorQuantidade++;
-
-        mTextViewQuantidade.setText(String.valueOf(valorQuantidade));
+        quantidadeNumber++;
+        mTextViewQuantidade.setText(String.valueOf(quantidadeNumber));
     }
 
     public void subtrair(View view) {
-        String valorQuantidadeString = mTextViewQuantidade.getText().toString();
+        String quantidade = mTextViewQuantidade.getText().toString();
+        int  quantidadeNumber = Integer.parseInt(quantidade);
 
-        int  valorQuantidade = Integer.parseInt(valorQuantidadeString);
-
-        if (valorQuantidade > 0 ) {
-            valorQuantidade--;
+        if (quantidadeNumber > 0 ) {
+            quantidadeNumber--;
         }
 
-        mTextViewQuantidade.setText(String.valueOf(valorQuantidade));
+        mTextViewQuantidade.setText(String.valueOf(quantidadeNumber));
     }
 
 
