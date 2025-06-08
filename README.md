@@ -3,9 +3,9 @@
 
 ### Imagens do Aplicativo atualmente
 
-Tela 
-<img src="https://github.com/CarolinaInglethe/HamburgueriaZ/blob/main/app/src/main/res/drawable/telaApp.jpeg" width="250px" alt="Texto Alternativo">
+<div>
+  <img src="https://github.com/CarolinaInglethe/HamburgueriaZ/blob/main/app/src/main/res/drawable/telaApp.jpeg" width="250px" alt="Texto Alternativo">
+  <img src="https://github.com/CarolinaInglethe/HamburgueriaZ/blob/main/app/src/main/res/drawable/telaEmail.jpeg" width="250px" alt="Texto Alternativo">
+</div>
 
-Envio do E-mail
-<img src="https://github.com/CarolinaInglethe/HamburgueriaZ/blob/main/app/src/main/res/drawable/telaEmail.jpeg" width="250px" alt="Texto Alternativo">
 
