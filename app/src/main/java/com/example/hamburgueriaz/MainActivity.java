@@ -96,7 +96,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void funcaoEnviarEmail( String textoResumoPedido, int valorTotalPedido){
         Intent intent = new Intent(Intent.ACTION_SEND);
-        intent.putExtra(Intent.EXTRA_SUBJECT, String.valueOf(textoResumoPedido + "\r\nR$ " + valorTotalPedido));
+        intent.putExtra(Intent.EXTRA_SUBJECT, String.valueOf("Pedido de " + mEditTextViewNome.getText().toString()));
         intent.putExtra(Intent.EXTRA_TEXT, String.valueOf(textoResumoPedido + "\r\nR$ " + valorTotalPedido));
         intent.setType("message/rfc822");
         startActivity(Intent.createChooser(intent, "Resumo do Pedido"));
